@@ -1,6 +1,3 @@
-# When done, submit this entire file to the autograder.
-
-# Part 1
 
 def sum arr
 	# Define a method sum(array) that takes an array of integers as an argument and returns the sum of its elements. For an empty array it should return zero. 
@@ -44,33 +41,25 @@ end
 def sum_to_n? arr, n
   # Define a method sum_to_n?(array, n) that takes an array of integers and an additional integer, n, as arguments and returns true if any two elements in the array of integers sum to n. sum_to_n?([], n) should return false for any value of n, by definition.
 
+  # store value of a sum to test for n
+  test_val = 0
+
   # we'll have to run every possible combination of 2 integers in the array
   return false if arr.length == 0
   (0...arr.length-1).each do |first_term|
+  	# puts arr[index]
+  	# puts "#{arr[index] + arr[index+1]}"
   	(first_term+1...arr.length).each do |second_term|
+  		# puts "#{arr[first_term]} + #{arr[second_term]}"
+  		# val = arr[first_term] + arr[second_term]
+  		# puts val
   		return true if n == arr[first_term] + arr[second_term]
   	end
   end
   return false
 end
 
+arr = [2]
+n = 2
 
-# Part 2
-
-def hello(name)
-  # YOUR CODE HERE
-end
-
-def starts_with_consonant? s
-  # YOUR CODE HERE
-end
-
-def binary_multiple_of_4? s
-  # YOUR CODE HERE
-end
-
-# Part 3
-
-class BookInStock
-# YOUR CODE HERE
-end
+puts sum_to_n? arr, n
