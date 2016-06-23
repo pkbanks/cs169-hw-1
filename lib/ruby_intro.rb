@@ -58,15 +58,36 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  # Define a method hello(name) that takes a string representing a name and returns the string "Hello, " concatenated with the name.
+  return "Hello, #{name}"
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  # Define a method starts_with_consonant?(s) that takes a string and returns true if it starts with a consonant and false otherwise. (For our purposes, a consonant is any letter other than A, E, I, O, U.) NOTE: be sure it works for both upper and lower case and for nonletters!
+
+  return false if s.nil? || s == ""
+
+	vowels = ['a', 'e', 'i', 'o', 'u']
+  consonants = []
+	
+	('a'..'z').each do |letter|
+		consonants.push letter unless vowels.include? letter
+	end
+
+  return true if consonants.include? s[0].downcase
+  false
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  # Define a method binary_multiple_of_4?(s) that takes a string and returns true if the string represents a binary number that is a multiple of 4. NOTE: be sure it returns false if the string is not a valid binary number!
+  
+	return false if s == ''
+  s.each_char do |c|
+  	return false if c != "0" && c != "1"
+  end
+  
+  return true if s.to_i(2) % 4 == 0
+  return false
 end
 
 # Part 3
