@@ -80,7 +80,7 @@ end
 
 def binary_multiple_of_4? s
   # Define a method binary_multiple_of_4?(s) that takes a string and returns true if the string represents a binary number that is a multiple of 4. NOTE: be sure it returns false if the string is not a valid binary number!
-  
+
 	return false if s == ''
   s.each_char do |c|
   	return false if c != "0" && c != "1"
@@ -93,5 +93,24 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+# 	Define a class BookInStock which represents a book with an ISBN number, isbn, and price of the book as a floating-point number, price, as attributes. Run associated tests via: $ rspec -e 'getters and setters' spec/part3_spec.rb
+
+# The constructor should accept the ISBN number (a string, since in real life ISBN numbers can begin with zero and can include hyphens) as the first argument and price as second argument, and should raise ArgumentError (one of Ruby's built-in exception types) if the ISBN number is the empty string or if the price is less than or equal to zero. Include the proper getters and setters for these attributes. Run associated tests via: $ rspec -e 'constructor' spec/part3_spec.rb
+
+# Include a method price_as_string that returns the price of the book formatted with a leading dollar sign and two decimal places, that is, a price of 20 should format as "$20.00" and a price of 33.8 should format as "$33.80". Run associated tests via: $ rspec -e '#price_as_string' spec/part3_spec.rb
+
+# You can check your progress on the all the above by running rspec spec/part3_spec.rb.
+	attr_accessor :isbn, :price
+
+	def initialize isbn, price
+		raise ArgumentError if isbn == ""
+		raise ArgumentError if price == 0 || price < 0
+		@isbn = isbn
+		@price = price
+	end
+
+	def price_as_string
+		format("$%.2f",@price)
+	end
+
 end
